@@ -1,0 +1,122 @@
+//Chamar este arquivo no _extend.less
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+
+    .progress-bar__container {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 100%;
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+
+            .progress-bar__icon {
+                background-color: #FFFFFF;
+                border-radius: 50%;
+                width: 45px;
+                height: 45px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 3px solid #aeaeae;
+
+                svg.icon {
+                    width: 22px;
+                    height: 22px;
+                    fill: #aeaeae;
+                }
+            }
+
+            span {
+                text-transform: uppercase;
+                font-size: 10px;
+                font-weight: bold;
+            }
+
+            &.completed {
+                .progress-bar__icon {
+                    background-color: #49cb95;
+                    border: 3px solid #49cb95;
+
+                    svg.icon {
+                        fill: #FFFFFF;
+                    }
+                }
+
+                span {
+                    color: #49cb95;
+                }
+
+                &:not(:last-child)::after {
+                    background-color: #49cb95;
+                }
+            }
+
+            &.active {
+                .progress-bar__icon {
+                    background-color: #FFFFFF;
+                    border: 3px solid #49cb95;
+
+                    svg.icon {
+                        fill: #49cb95;
+                    }
+                }
+
+                span {
+                    color: #49cb95;
+                }
+            }
+
+            &:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                top: 25px;
+                left: 0;
+                transform: translateY(-50%);
+                width: 195px;
+                height: 3px;
+                background-color: #aeaeae;
+                z-index: -1;
+            }
+        }
+    }
+}
+
+.checkout-cart-index {
+    .progress-bar {
+        margin: 15px 0 50px;
+
+        .progress-bar__container {
+            max-width: 50%;
+        }
+    }
+}
+
+.checkout-index-index {
+    header.page-header {
+        .header.content {
+            width: 48%;
+        }
+    }
+
+    .progress-bar {
+        width: 48%;
+        padding-right: 30px;
+
+        .progress-bar__container {
+            .step {
+                &:not(:last-child)::after {
+                    left: 15px;
+                    height: 2px;
+                }
+            }
+        }
+    }
+}

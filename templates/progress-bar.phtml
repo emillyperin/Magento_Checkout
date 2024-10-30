@@ -1,0 +1,11 @@
+<div class="progress-bar" data-bind="scope: 'progress-bar'">
+     <!-- ko template: getTemplate() --> <!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+{
+    ".progress-bar": {
+        "Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>
+    }
+}
+</script>
